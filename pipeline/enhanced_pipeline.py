@@ -1,8 +1,8 @@
 from core.file_handler import handle_file_upload
 from core.text_normalizer import normalize_text
-from pipeline.enhanced_chunker import TextChunker
-from pipeline.enhanced_embedder import EmbeddingGenerator
-from pipeline.enhanced_vector_db import EnhancedVectorDB
+from pipeline.chunker import TextChunker
+from pipeline.embedder import EmbeddingGenerator
+from pipeline.vector_db import EnhancedVectorDB
 import sys
 import logging
 from typing import Dict, Any, List

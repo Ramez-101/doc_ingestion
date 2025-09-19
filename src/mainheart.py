@@ -1,8 +1,8 @@
 from core.file_handler import handle_file_upload
 from core.text_normalizer import normalize_text
-from pipeline.chunker import chunk_text
-from pipeline.embedder import generate_embeddings
-from pipeline.enhanced_vector_db import VectorDB
+from pipeline.chunker import TextChunker
+from pipeline.embedder import EmbeddingGenerator
+from pipeline.vector_db import EnhancedVectorDB
 import sys
 import os
 from pathlib import Path
@@ -27,15 +27,17 @@ def process_document(file_path: str, doc_id: str = None):
     print(f"🧹 Cleaned text length: {len(clean_text)} chars")
 
     # Step 3: Chunk
-    chunks = chunk_text(clean_text)
+    chunker = TextChunker()
+    chunks_with_metadata = chunker.chunk_text(clean_text, doc_id=doc_id)
+    chunks = [chunk['text'] for chunk in chunks_with_metadata]  # Extract text for compatibility
     print(f"✂️  Created {len(chunks)} chunks")
 
     # Step 4: Generate embeddings (optional if Chroma does it)
     # embeddings = generate_embeddings(chunks)  # Chroma can auto-embed
 
     # Step 5: Store in Vector DB
-    db = VectorDB()
-    db.add_documents(chunks, doc_id)
+    db = EnhancedVectorDB()
+    db.add_documents_with_metadata(chunks_with_metadata)
 
     print(f"✅ DONE. Doc '{doc_id}' ingested.")
 

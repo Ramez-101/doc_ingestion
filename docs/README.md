@@ -5,19 +5,24 @@
 Version: 2.1.0 | Author: Senior Development Team | Updated: September 2025
 
 ## 🎉 **LATEST UPDATES (v2.1.0)**
+✅ **Pipeline Consolidation**: Merged enhanced and basic pipeline components into single optimized files  
 ✅ **File Consolidation**: Eliminated duplicate files for cleaner codebase  
 ✅ **Bug Fixes**: Fixed clear chat functionality and cache management  
 ✅ **Enhanced Error Handling**: Improved robustness across all components  
 ✅ **System Optimization**: Streamlined architecture and imports
-
 ## 🎯 **DELIVERABLE ACHIEVED**
 ✅ **Complete End-to-End Chatbot**: Restaurant owner uploads menu/FAQ → customers ask queries → chatbot answers with feedback option
 
 ---
 
-## 📋 Overview
+## 🔧 **Pipeline Architecture**  
+The system uses a streamlined, modular pipeline architecture with consolidated components for text processing, embedding, and vector storage. The enhanced pipeline combines the best features from previous implementations into a single, optimized solution with:
 
-The Professional NLP Document Processor is a comprehensive, enterprise-grade GUI application that transforms your document processing workflow with cutting-edge AI technology. Built with modern software engineering practices, it provides an intuitive interface for uploading, processing, and querying documents using advanced NLP techniques, now featuring an enhanced feedback system for continuous improvement.
+- **Unified Text Processing**: Single implementation with support for both basic and advanced chunking strategies
+- **Enhanced Metadata Tracking**: Built-in metadata support for all pipeline operations
+- **Multi-model Embedding**: Support for various embedding models with automatic fallback
+- **Optimized Vector Storage**: Improved ChromaDB integration with better query performance
+- **Simplified Maintenance**: Single source of truth for each pipeline component
 
 ### 🎯 Key Features
 
@@ -107,13 +112,12 @@ E:\Ai_warmup\
 │
 ├── 🚀 Enhanced Pipeline Components
 │   ├── pipeline/
-│   │   ├── enhanced_pipeline.py     # Complete NLP pipeline integration
-│   │   ├── enhanced_chunker.py      # Advanced text chunking with metadata
-│   │   ├── enhanced_embedder.py     # Multi-model embedding generation
-│   │   ├── enhanced_vector_db.py    # Enhanced ChromaDB integration
-│   │   ├── chunker.py               # Basic text chunking (legacy)
-│   │   ├── embedder.py              # Basic embedding generation (legacy)
-│   │   └── vector_db.py             # Basic vector database operations (legacy)
+│   │   ├── pipeline/                # NLP processing pipeline components
+│   │   │   ├── __init__.py         # Package initialization
+│   │   │   ├── chunker.py          # Text chunking with metadata support
+│   │   │   ├── embedder.py         # Multi-model embedding generation
+│   │   │   ├── vector_db.py        # ChromaDB integration with enhanced features
+│   │   │   └── enhanced_pipeline.py # Complete NLP pipeline integration
 │
 ├── ⚙️ Configuration & Management
 │   ├── config/
